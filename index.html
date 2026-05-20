@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baza Bajki</title>
+    <title>Projekt Party - Baza Bajki</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,15 +13,17 @@
         <p>Centrum atrakcji eventowych i animacji dla dzieci</p>
     </header>
 
+    <button class="menu-toggle-btn" onclick="toggleMenu()">Pokaż kategorie ☰</button>
+
     <div class="layout-wrapper container">
         
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebarMenu">
             <h3>Kategorie</h3>
             <ul class="category-list">
                 <li><button class="cat-btn active" onclick="filtruj('all', this)">✨ Wszystkie</button></li>
                 <li><button class="cat-btn" onclick="filtruj('dmuchance', this)">🎈 Dmuchańce</button></li>
                 <li><button class="cat-btn" onclick="filtruj('animacje', this)">🎨 Animacje</button></li>
-                <li><button class="cat-btn" onclick="filtruj('przekaski', this)"> 🍿 Przekąski</button></li>
+                <li><button class="cat-btn" onclick="filtruj('przekaski', this)">🍿 Przekąski</button></li>
             </ul>
         </aside>
 
@@ -73,6 +75,13 @@
     </footer>
 
     <script>
+        // FUNKCJA CHOWANIA/POKAZYWANIA MENU NA TELEFONIE
+        function toggleMenu() {
+            const menu = document.getElementById('sidebarMenu');
+            menu.classList.toggle('open');
+        }
+
+        // FILTROWANIE ATRAKCJI
         function filtruj(kategoria, przycisk) {
             const przyciski = document.querySelectorAll('.cat-btn');
             przyciski.forEach(btn => btn.classList.remove('active'));
@@ -88,6 +97,11 @@
                     kafelek.style.display = "none";
                 }
             });
+
+            // Po kliknięciu kategorii na telefonie automatycznie zamknij menu
+            if (window.innerWidth < 768) {
+                document.getElementById('sidebarMenu').classList.remove('open');
+            }
         }
     </script>
 

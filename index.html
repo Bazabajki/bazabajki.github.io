@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt Party</title>
+    <title>Baza Bajki</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,52 +13,83 @@
         <p>Centrum atrakcji eventowych i animacji dla dzieci</p>
     </header>
 
-    <main class="container">
-        <section class="catalog-header">
-            <h2>Katalog Atrakcji</h2>
-            <p>Wybierz interesującą Cię pozycję, aby poznać szczegółowy cennik oraz parametry.</p>
-        </section>
-
-        <div class="product-grid">
-            
-            <a href="/zamek-smok/" class="product-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1572537165377-627a3a139fa4?w=400" alt="Zamek Dmuchany Smok">
-                </div>
-                <div class="card-content">
-                    <h3>Zamek Dmuchany SMOK</h3>
-                    <span class="card-price">od 500 zł</span>
-                </div>
-            </a>
-
+    <div class="layout-wrapper container">
         
-            <a href="/animacje-urodzinowe/" class="product-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400" alt="Animacje Urodzinowe">
-                </div>
-                <div class="card-content">
-                    <h3>Animacje Urodzinowe</h3>
-                    <span class="card-price">od 350 zł</span>
-                </div>
-            </a>
+        <aside class="sidebar">
+            <h3>Kategorie</h3>
+            <ul class="category-list">
+                <li><button class="cat-btn active" onclick="filtruj('all', this)">✨ Wszystkie</button></li>
+                <li><button class="cat-btn" onclick="filtruj('dmuchance', this)">🎈 Dmuchańce</button></li>
+                <li><button class="cat-btn" onclick="filtruj('animacje', this)">🎨 Animacje</button></li>
+                <li><button class="cat-btn" onclick="filtruj('przekaski', this)"> popcorn 🍿 Przekąski</button></li>
+            </ul>
+        </aside>
 
-            <a href="/przekąski/" class="product-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=400" alt="Wata Cukrowa">
-                </div>
-                <div class="card-content">
-                    <h3>Przekąski</h3>
-                    <span class="card-price">od 15 zł</span>
-                </div>
-            </a>
+        <main class="catalog-main">
+            <section class="catalog-header">
+                <h2>Katalog Atrakcji</h2>
+                <p>Wybierz interesującą Cię pozycję, aby poznać szczegółowy cennik oraz parametry.</p>
+            </section>
 
-        </div>
-    </main>
+            <div class="product-grid" id="product-grid">
+                
+                <a href="/zamek-smok/" class="product-card" data-category="dmuchance">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1572537165377-627a3a139fa4?w=400" alt="Zamek Dmuchany Smok">
+                    </div>
+                    <div class="card-content">
+                        <h3>Zamek Dmuchany SMOK</h3>
+                        <span class="card-price">od 500 zł</span>
+                    </div>
+                </a>
+
+                <a href="/animacje-urodzinowe/" class="product-card" data-category="animacje">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400" alt="Animacje Urodzinowe">
+                    </div>
+                    <div class="card-content">
+                        <h3>Animacje Urodzinowe</h3>
+                        <span class="card-price">od 350 zł</span>
+                    </div>
+                </a>
+
+                <a href="/przekaski/" class="product-card" data-category="przekaski">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=400" alt="Wata Cukrowa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Przekąski</h3>
+                        <span class="card-price">od 15 zł</span>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2026 Projekt Party. Wszelkie prawa zastrzeżone.</p>
         <p>Kontakt: ProjektPartyPL@gmail.com | Tel: +48 884 707 014</p>
     </footer>
+
+    <script>
+        function filtruj(kategoria, przycisk) {
+            const przyciski = document.querySelectorAll('.cat-btn');
+            przyciski.forEach(btn => btn.classList.remove('active'));
+            przycisk.classList.add('active');
+
+            const kafelki = document.querySelectorAll('.product-card');
+            kafelki.forEach(kafelek => {
+                const katKafelka = kafelek.getAttribute('data-category');
+                
+                if (kategoria === 'all' || katKafelka === kategoria) {
+                    kafelek.style.display = "flex";
+                } else {
+                    kafelek.style.display = "none";
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>

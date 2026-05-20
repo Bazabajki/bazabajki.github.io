@@ -34,15 +34,89 @@ header p {
 }
 
 .container {
-    max-width: 1200px; /* Zwiększone, żeby 4 kafelki miały więcej miejsca */
+    max-width: 1300px;
     margin: 0 auto;
     padding: 40px 20px;
     flex: 1;
 }
 
+/* UKŁAD STRONY GŁÓWNEJ */
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .layout-wrapper {
+        flex-direction: row;
+    }
+}
+
+/* SIDEBAR Z KATEGORIAMI */
+.sidebar {
+    flex: 0 0 240px;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.category-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+@media (min-width: 768px) {
+    .category-list {
+        flex-direction: column;
+        overflow-x: visible;
+    }
+}
+
+.cat-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.cat-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.cat-btn.active {
+    background: #fff5f5;
+    color: #ff6b6b;
+}
+
+.catalog-main {
+    flex: 1;
+}
+
 .catalog-header {
-    text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .catalog-header h2 {
@@ -55,22 +129,22 @@ header p {
     margin-top: 5px;
 }
 
-/* SIATKA: DOSTOSOWANA DO 4 KAFELKÓW W RZĘDZIE */
+/* SIATKA NA 4 KAFELKI */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* 1 kolumna na telefonach */
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 480px) {
     .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na tabletach */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
     .product-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 kolumny na komputerach */
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -94,7 +168,7 @@ header p {
 
 .card-image {
     width: 100%;
-    height: 160px;
+    height: 150px;
     background-color: #f1f5f9;
 }
 
@@ -105,7 +179,7 @@ header p {
 }
 
 .card-content {
-    padding: 15px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -113,13 +187,13 @@ header p {
 }
 
 .card-content h3 {
-    font-size: 1.05rem; /* Delikatnie zmniejszony font, by pasował do mniejszego kafelka */
+    font-size: 1rem;
     color: #1e293b;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .card-price {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: #ff6b6b;
     background: #fff5f5;
@@ -128,7 +202,7 @@ header p {
     align-self: flex-start;
 }
 
-/* Wygląd podstrony produktu */
+/* PODSTRONA PRODUKTU */
 .back-btn {
     display: inline-block;
     padding: 10px 20px;

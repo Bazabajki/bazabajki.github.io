@@ -7,7 +7,7 @@
 }
 
 html, body {
-    height: 100%; /* Wymagane, żeby stopka zawsze była na dole */
+    height: 100%; /* Wymagane, żeby stopka zawsze była na samym dole ekranu */
 }
 
 body {
@@ -17,25 +17,30 @@ body {
     flex-direction: column;
 }
 
-/* NAGŁÓWEK */
+/* NAGŁÓWEK Z KOLOROWYMI BALONAMI */
 header {
-    background: linear-gradient(135deg, #ff6b6b, #ffbe0b);
+    /* Nakładamy delikatny ciemny filtr (0.35), aby białe napisy były idealnie czytelne na tle balonów */
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/assets/img/balony.png');
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 55px 15px; /* Zwiększony padding, by ładnie wyeksponować tło */
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 800;
     letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Cień pod napisem dla lepszej widoczności */
 }
 
 header p {
-    font-size: 1rem;
-    margin-top: 5px;
-    opacity: 0.9;
+    font-size: 1.05rem;
+    margin-top: 8px;
+    opacity: 0.95;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* PRZYCISK MENU NA TELEFONY */
@@ -57,17 +62,17 @@ header p {
 
 @media (min-width: 768px) {
     .menu-toggle-btn {
-        display: none; /* Ukryj na komputerze */
+        display: none; /* Ukryj na komputerach */
     }
 }
 
-/* GŁÓWNY KONTENER (ELASTYCZNY ROZMIAR) */
+/* GŁÓWNY KONTENER WRAPPER */
 .container {
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
     padding: 15px;
-    flex: 1 0 auto; /* To pilnuje, żeby ta sekcja wypychała stopkę w dół */
+    flex: 1 0 auto; /* Pilnuje, by ta sekcja rozciągała się i wypychała stopkę na dół */
 }
 
 @media (min-width: 768px) {
@@ -90,9 +95,9 @@ header p {
     }
 }
 
-/* PASEK BOCZNY (MENU) */
+/* PASEK BOCZNY (MENU KATEGORII) */
 .sidebar {
-    display: none; /* Ukryty na telefonie */
+    display: none; /* Domyślnie schowany na telefonie */
     background: white;
     padding: 20px;
     border-radius: 16px;
@@ -101,13 +106,13 @@ header p {
 }
 
 .sidebar.open {
-    display: block; /* Pokazuje się po kliknięciu na telefonie */
+    display: block; /* Pokazuje się po kliknięciu "Pokaż kategorie" na smartfonie */
     animation: slideDown 0.25s ease-out;
 }
 
 @media (min-width: 768px) {
     .sidebar {
-        display: block; /* Zawsze widoczny na desktopie */
+        display: block; /* Zawsze widoczny na komputerze */
         flex: 0 0 260px;
     }
 }
@@ -136,7 +141,7 @@ header p {
     width: 100%;
     text-align: left;
     padding: 12px 15px;
-    background: #f8fafc; /* Lekkie tło przycisków na telefonie */
+    background: #f8fafc; /* Delikatne tło przycisków na telefonie */
     border: 1px solid #e2e8f0;
     border-radius: 10px;
     font-size: 0.95rem;
@@ -164,7 +169,7 @@ header p {
     border-color: #ffccce;
 }
 
-/* KATALOG */
+/* SEKACJA KATALOGU */
 .catalog-main {
     flex: 1;
 }
@@ -192,10 +197,10 @@ header p {
     margin-top: 4px;
 }
 
-/* SIATKA KAFELKÓW - RESPENSYWNA */
+/* RESPENSYWNA SIATKA KAFELKÓW (BRAK PAŹDZIERZA) */
 .product-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Opcja domyślna: 1 kolumna na telefon */
+    grid-template-columns: 1fr; /* 1 duży, czytelny kafelek na telefonie */
     gap: 15px;
 }
 
@@ -207,11 +212,11 @@ header p {
 
 @media (min-width: 1024px) {
     .product-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 kolumny na duże ekrany komputera */
+        grid-template-columns: repeat(4, 1fr); /* 4 idealne kolumny na komputerze */
     }
 }
 
-/* KAFELEK */
+/* POJEDYNCZY KAFELEK PRODUKTU */
 .product-card {
     background: white;
     border-radius: 16px;
@@ -232,13 +237,13 @@ header p {
 
 .card-image {
     width: 100%;
-    height: 180px; /* Nieco wyższe na telefonie, żeby ładnie wyglądało */
+    height: 180px; /* Ładna wysokość zdjęcia na telefonie */
     background-color: #f1f5f9;
 }
 
 @media (min-width: 768px) {
     .card-image {
-        height: 140px; /* Niższe na komputerze, bo kafelki są węższe */
+        height: 140px; /* Dopasowanie wysokości na komputerze przy 4 kolumnach */
     }
 }
 
@@ -273,7 +278,7 @@ header p {
     align-self: flex-start;
 }
 
-/* PODSTRONA PRODUKTU */
+/* PODSTRONA SZCZEGÓŁÓW PRODUKTU */
 .back-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -351,9 +356,9 @@ header p {
     font-weight: 700;
 }
 
-/* PAN PANÓW – ULTRA BEZPIECZNA STOPKA NA DOLE */
+/* ZAWSZE NAPRAWIONA STOPKA NA SAMYM DOLE */
 footer {
-    flex-shrink: 0; /* Zabezpiecza stopkę przed zgniataniem */
+    flex-shrink: 0; /* Blokuje zgniatanie paska na mniejszych ekranach */
     background: #0f172a;
     color: #94a3b8;
     text-align: center;

@@ -10,7 +10,7 @@
 
     <header>
         <h1>BAZA BAJKI</h1>
-        <p>Centrum atrakcji eventowych i animacji dla dzieci</p>
+        <p>Centrum atrakcji eventowych i animacji dla children</p>
     </header>
 
     <button class="menu-toggle-btn" onclick="toggleMenu()">Pokaż kategorie ☰</button>
@@ -75,13 +75,11 @@
     </footer>
 
     <script>
-        // FUNKCJA CHOWANIA/POKAZYWANIA MENU NA TELEFONIE
         function toggleMenu() {
             const menu = document.getElementById('sidebarMenu');
             menu.classList.toggle('open');
         }
 
-        // FILTROWANIE ATRAKCJI
         function filtruj(kategoria, przycisk) {
             const przyciski = document.querySelectorAll('.cat-btn');
             przyciski.forEach(btn => btn.classList.remove('active'));
@@ -98,7 +96,6 @@
                 }
             });
 
-            // Po kliknięciu kategorii na telefonie automatycznie zamknij menu
             if (window.innerWidth < 768) {
                 document.getElementById('sidebarMenu').classList.remove('open');
             }

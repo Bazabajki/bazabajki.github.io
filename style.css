@@ -34,7 +34,7 @@ header p {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px; /* Zwiększone, żeby 4 kafelki miały więcej miejsca */
     margin: 0 auto;
     padding: 40px 20px;
     flex: 1;
@@ -55,11 +55,23 @@ header p {
     margin-top: 5px;
 }
 
-/* Siatka małych kafelków */
+/* SIATKA: DOSTOSOWANA DO 4 KAFELKÓW W RZĘDZIE */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(1, 1fr); /* 1 kolumna na telefonach */
+    gap: 20px;
+}
+
+@media (min-width: 576px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na tabletach */
+    }
+}
+
+@media (min-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 kolumny na komputerach */
+    }
 }
 
 .product-card {
@@ -101,13 +113,13 @@ header p {
 }
 
 .card-content h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem; /* Delikatnie zmniejszony font, by pasował do mniejszego kafelka */
     color: #1e293b;
     margin-bottom: 10px;
 }
 
 .card-price {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: #ff6b6b;
     background: #fff5f5;

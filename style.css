@@ -377,3 +377,82 @@ footer p:last-child {
     color: #cbd5e1;
     font-weight: 500;
 }
+/* SEKCJA OPINII */
+.reviews-section {
+    background-color: #f1f5f9;
+    padding: 40px 15px;
+    margin-top: 40px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.reviews-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.reviews-container h2 {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.reviews-container p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.review-form {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #0f172a;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #ff6b6b;
+}
+
+.submit-review-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff6b6b, #ffbe0b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
+    transition: opacity 0.2s;
+}
+
+.submit-review-btn:hover {
+    opacity: 0.9;
+}

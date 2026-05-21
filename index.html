@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baza Bajki</title>
+    <title>Projekt Party - Baza Bajki</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
 
             <div class="product-grid" id="product-grid">
                 
-                <a href="/zamek-smok/" class="product-card" data-category="dmuchance">
+                <a href="/dmuchance/zamek-smok/" class="product-card" data-category="dmuchance">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1572537165377-627a3a139fa4?w=400" alt="Zamek Dmuchany Smok">
                     </div>
@@ -45,7 +45,7 @@
                     </div>
                 </a>
 
-                <a href="/animacje-urodzinowe/" class="product-card" data-category="animacje">
+                <a href="/animacje/animacje-urodzinowe/" class="product-card" data-category="animacje">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400" alt="Animacje Urodzinowe">
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                 </a>
 
-                <a href="/przekaski/" class="product-card" data-category="przekaski">
+                <a href="/przekaski/przekaski-eventowe/" class="product-card" data-category="przekaski">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=400" alt="Wata Cukrowa">
                     </div>
@@ -68,6 +68,34 @@
             </div>
         </main>
     </div>
+
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2>Zostaw swoją opinię!</h2>
+            <p>Twoje zdanie jest dla nas bardzo ważne. Podziel się wrażeniami z imprezy!</p>
+            
+            <form action="https://formspree.io/f/TWÓJ_ID_FORMSPREE" method="POST" class="review-form">
+                <div class="form-group">
+                    <label for="client-name">Twoje Imię / Nazwa firmy:</label>
+                    <input type="text" id="client-name" name="name" placeholder="np. Kasia, Przedszkole nr 5" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-email">Twój adres E-mail (opcjonalnie):</label>
+                    <input type="email" id="client-email" name="_replyto" placeholder="np. kasia@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="client-msg">Twoja opinia:</label>
+                    <textarea id="client-msg" name="message" rows="4" placeholder="Jak oceniasz nasze dmuchańce i animatorów? 😊" required></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="Nowa opinia o BAZA BAJKI!">
+
+                <button type="submit" class="submit-review-btn">Wyślij opinię ✨</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 Projekt Party. Wszelkie prawa zastrzeżone.</p>

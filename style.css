@@ -19,7 +19,8 @@ body {
 
 /* NAGŁÓWEK Z KOLOROWYMI BALONAMI */
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/assets/img/balloons.jpg');
+    /* Zmienione na assets/img/balony.png */
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('assets/img/balony.png');
     background-size: cover;
     background-position: center;
     color: white;
